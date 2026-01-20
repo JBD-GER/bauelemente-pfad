@@ -1,6 +1,7 @@
 // app/(app)/dashboard/page.tsx
+import type { Metadata } from "next";
 
-export const metadata = {
+export const metadata: Metadata = {
   title: "Dashboard",
 };
 
