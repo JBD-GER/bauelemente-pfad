@@ -107,7 +107,7 @@ export default function PublicHome() {
                 {[
                   { k: "Montage", v: "Fenster & Türen" },
                   { k: "Qualität", v: "sauber & ordentlich" },
-                  { k: "Bestand", v: "Projektbegleitung auf Anfrage" },
+                  { k: "Bestand", v: "Projektbegleitung" },
                 ].map((x) => (
                   <div key={x.k} className={cn(CARD_DARK, "px-4 py-3")}>
                     <div className="text-xs font-medium text-slate-500">
