@@ -1,6 +1,5 @@
 // app/(public)/leistungen/page.tsx
 import Image from "next/image";
-import Link from "next/link";
 import React from "react";
 
 function cn(...c: Array<string | false | null | undefined>) {
@@ -37,19 +36,10 @@ function Chip({ children }: { children: React.ReactNode }) {
 function Icon({
   name,
 }: {
-  name:
-    | "one"
-    | "plan"
-    | "people"
-    | "check"
-    | "box"
-    | "wind"
-    | "floor"
-    | "seal"
-    | "drill"
-    | "cable";
+  name: "box" | "plan" | "people" | "check" | "one";
 }) {
   const common = "h-5 w-5 text-slate-900";
+
   if (name === "one")
     return (
       <svg viewBox="0 0 24 24" className={common} fill="none" aria-hidden="true">
@@ -142,214 +132,101 @@ function Icon({
       </svg>
     );
 
-  if (name === "box")
-    return (
-      <svg viewBox="0 0 24 24" className={common} fill="none" aria-hidden="true">
-        <path
-          d="M12 3l9 5-9 5-9-5 9-5z"
-          stroke="currentColor"
-          strokeWidth="2"
-          strokeLinejoin="round"
-        />
-        <path
-          d="M3 8v8l9 5 9-5V8"
-          stroke="currentColor"
-          strokeWidth="2"
-          strokeLinejoin="round"
-          opacity="0.55"
-        />
-        <path
-          d="M12 13v8"
-          stroke="currentColor"
-          strokeWidth="2"
-          strokeLinecap="round"
-          opacity="0.35"
-        />
-      </svg>
-    );
-
-  if (name === "wind")
-    return (
-      <svg viewBox="0 0 24 24" className={common} fill="none" aria-hidden="true">
-        <path
-          d="M4 8h10a3 3 0 100-6"
-          stroke="currentColor"
-          strokeWidth="2"
-          strokeLinecap="round"
-        />
-        <path
-          d="M4 12h14a3 3 0 110 6"
-          stroke="currentColor"
-          strokeWidth="2"
-          strokeLinecap="round"
-          opacity="0.8"
-        />
-        <path
-          d="M4 16h7"
-          stroke="currentColor"
-          strokeWidth="2"
-          strokeLinecap="round"
-          opacity="0.55"
-        />
-      </svg>
-    );
-
-  if (name === "floor")
-    return (
-      <svg viewBox="0 0 24 24" className={common} fill="none" aria-hidden="true">
-        <path
-          d="M4 20h16"
-          stroke="currentColor"
-          strokeWidth="2"
-          strokeLinecap="round"
-        />
-        <path
-          d="M6 20V6a2 2 0 012-2h8a2 2 0 012 2v14"
-          stroke="currentColor"
-          strokeWidth="2"
-          strokeLinejoin="round"
-        />
-        <path
-          d="M9 8h6M9 11h6M9 14h6"
-          stroke="currentColor"
-          strokeWidth="2"
-          strokeLinecap="round"
-          opacity="0.55"
-        />
-      </svg>
-    );
-
-  if (name === "seal")
-    return (
-      <svg viewBox="0 0 24 24" className={common} fill="none" aria-hidden="true">
-        <path
-          d="M12 22a4 4 0 004-4V8a4 4 0 10-8 0v10a4 4 0 004 4z"
-          stroke="currentColor"
-          strokeWidth="2"
-          strokeLinejoin="round"
-        />
-        <path
-          d="M8 12h8"
-          stroke="currentColor"
-          strokeWidth="2"
-          strokeLinecap="round"
-          opacity="0.55"
-        />
-      </svg>
-    );
-
-  if (name === "drill")
-    return (
-      <svg viewBox="0 0 24 24" className={common} fill="none" aria-hidden="true">
-        <path
-          d="M7 7h10l2 3-2 3H7l-2-3 2-3z"
-          stroke="currentColor"
-          strokeWidth="2"
-          strokeLinejoin="round"
-        />
-        <path
-          d="M7 10h10"
-          stroke="currentColor"
-          strokeWidth="2"
-          strokeLinecap="round"
-          opacity="0.55"
-        />
-        <path
-          d="M5 13v4a2 2 0 002 2h4"
-          stroke="currentColor"
-          strokeWidth="2"
-          strokeLinecap="round"
-        />
-      </svg>
-    );
-
   return (
     <svg viewBox="0 0 24 24" className={common} fill="none" aria-hidden="true">
       <path
-        d="M6 7h8a3 3 0 013 3v7a2 2 0 01-2 2H8a2 2 0 01-2-2V7z"
+        d="M12 3l9 5-9 5-9-5 9-5z"
         stroke="currentColor"
         strokeWidth="2"
         strokeLinejoin="round"
       />
       <path
-        d="M10 7V5a2 2 0 012-2h6"
+        d="M3 8v8l9 5 9-5V8"
         stroke="currentColor"
         strokeWidth="2"
-        strokeLinecap="round"
+        strokeLinejoin="round"
         opacity="0.55"
       />
       <path
-        d="M8 12h8M8 15h6"
+        d="M12 13v8"
         stroke="currentColor"
         strokeWidth="2"
         strokeLinecap="round"
-        opacity="0.55"
+        opacity="0.35"
       />
     </svg>
   );
 }
 
 export default function LeistungenPage() {
-  const single = [
+  // ✅ Fokus: Montage Bauelemente (primär)
+  const montage = [
     {
       icon: "box" as const,
-      title: "Fenster / Türen / Bauelemente (B2 Nr. 24)",
-      subtitle: "Montage genormter, vorgefertigter Bauteile",
-      text: "Saubere Montage mit klarer Abgrenzung. Übergabe dokumentiert.",
-      bullets: ["Fenster", "Türen", "Zargen", "Rollladen-Elemente (genormt)"],
+      title: "Fenster & Fensterelemente",
+      subtitle: "Aus-/Einbau im Bestand · sauber ausgerichtet",
+      text: "Montage mit klarer Abgrenzung und sauberem Abschluss – damit Fenster wirklich dicht, gerade und dauerhaft laufen.",
+      bullets: [
+        "Aus- & Einbau (Bestand)",
+        "Ausrichten · Befestigen",
+        "Anschluss nach Abstimmung",
+        "Elemente mit Rollläden (genormt)",
+      ],
     },
     {
-      icon: "wind" as const,
-      title: "Bautentrocknung (B2 Nr. 2)",
-      subtitle: "Trocknung & Monitoring",
-      text: "Kontrollierte Trocknung inkl. Zwischenmessungen. Mit Protokoll, wenn gewünscht.",
-      bullets: ["Wasserschaden", "Estrich/Rohbau", "Messungen/Protokoll"],
+      icon: "box" as const,
+      title: "Haus- & Wohnungstüren",
+      subtitle: "Einbau · Justierung · saubere Übergänge",
+      text: "Tür sitzt, schließt sauber, Beschläge passen – Übergabe nachvollziehbar, ohne Chaos an den Schnittstellen.",
+      bullets: [
+        "Einbau & Justierung",
+        "Beschläge/Schließbleche nach Absprache",
+        "Schnittstellen vorher klären",
+        "Abnahme & Übergabe",
+      ],
     },
     {
-      icon: "floor" as const,
-      title: "Bodenarbeiten (B2 Nr. 3)",
-      subtitle: "Verlegen definierter Bodenbeläge",
-      text: "Untergrund prüfen, sauber verlegen, Kanten ordentlich. Schnell & nachvollziehbar.",
-      bullets: ["Laminat", "Fertigparkett (schwimmend)", "Vinyl/Kunststoff", "Teppich/Kork"],
+      icon: "box" as const,
+      title: "Innentüren & Zargen",
+      subtitle: "Zargen setzen · Türblatt einstellen",
+      text: "Gerade Zargen, ruhiger Lauf, sauberer Abschluss – das ist die halbe Miete im Innenausbau.",
+      bullets: [
+        "Zargen setzen & ausrichten",
+        "Türblatt montieren & einstellen",
+        "Drücker/Beschläge nach Absprache",
+        "Sauberer Abschluss (Bestand)",
+      ],
     },
     {
-      icon: "seal" as const,
-      title: "Fugenarbeiten (B2 Nr. 5)",
-      subtitle: "Anschluss-/Bewegungs- und Dehnungsfugen",
-      text: "Gezielt dort, wo Fugen hingehören. Kein „alles abdichten“, sondern sauber abgegrenzt.",
-      bullets: ["Anschlussfugen", "Dehnungsfugen innen", "Bewegungsfugen (nicht Fliesenlegen)"],
-    },
-    {
-      icon: "drill" as const,
-      title: "Kernbohrungen & Schnitte (B2 Nr. 8)",
-      subtitle: "nach Vorgabe/Plan",
-      text: "Ausführung nach Plan/Vorgabe. Tragwerk nur mit Freigabe – ohne Diskussion.",
-      bullets: ["Durchführungen", "Öffnungen/Trassen", "Tragwerk nur mit Freigabe"],
-    },
-    {
-      icon: "cable" as const,
-      title: "Kabelverlegung – ohne Anschluss (B2 Nr. 16)",
-      subtitle: "Trassen/Leerrohre nach Vorgabe",
-      text: "Trassen sauber führen und befestigen. Ohne Anklemmen/ohne Inbetriebnahme.",
-      bullets: ["Kabel/Leerrohre", "Kanäle/Trassen", "ohne Anklemmen/Inbetriebnahme"],
+      icon: "plan" as const,
+      title: "Vorbereitung & Schutz im Bestand",
+      subtitle: "Materialfenster · Schutz · Ablauf",
+      text: "Damit Montage schnell und sauber durchläuft: Schutzmaßnahmen, Lieferfenster und Reihenfolge vorab klarziehen.",
+      bullets: [
+        "Schutzmaßnahmen im Bestand",
+        "Material-/Lieferfenster abstimmen",
+        "Leistungsabgrenzung vorab",
+        "Dokumentation (optional)",
+      ],
     },
   ];
 
-  const paket = [
+  // ✅ Sekundär: Modernisierung/Kernsanierung als Projekt (auf Anfrage)
+  const projekt = [
     {
       icon: "plan" as const,
-      title: "Projektplanung (Kernsanierung/Modernisierung)",
+      title: "Planung & Ablauf (Bestand)",
       points: ["Vor-Ort-Check", "Reihenfolge & Timing", "klare Abgrenzung je Gewerk"],
     },
     {
       icon: "people" as const,
-      title: "Schnittstellen & Termine (wenn mehrere Gewerke greifen)",
-      points: ["Abhängigkeiten lösen", "Termine takten", "Absprachen dokumentieren"],
+      title: "Koordination (wenn mehrere Gewerke greifen)",
+      points: ["Schnittstellen sauber definieren", "Termine takten", "Absprachen dokumentieren"],
     },
     {
       icon: "check" as const,
       title: "Qualität, Doku & Abnahme",
-      points: ["laufende Kontrolle", "Fotos/Protokolle", "Übergabe mit Restpunkten"],
+      points: ["laufende Kontrolle", "Fotos/Protokolle (wenn sinnvoll)", "Übergabe mit Restpunkten"],
     },
   ];
 
@@ -366,50 +243,56 @@ export default function LeistungenPage() {
         <div className="mx-auto w-full max-w-7xl px-4 pt-10 pb-10 sm:px-6 sm:pt-14 sm:pb-14">
           <div className="grid items-start gap-8 lg:grid-cols-12 lg:gap-10">
             <div className="lg:col-span-7">
-              {/* ✅ geändert: Chips reduziert, nur kurze Leistungs-Überschrift */}
+              {/* Chips: Fokus Montage */}
               <div className="flex flex-wrap gap-2">
-                <Chip>Fenster & Türen</Chip>
-                <Chip>Bautrocknung</Chip>
-                <Chip>Bodenarbeiten</Chip>
-                <Chip>Fugen</Chip>
-                <Chip>Kernbohrung</Chip>
-                <Chip>Kabelverlegung</Chip>
+                <Chip>Fenster</Chip>
+                <Chip>Türen</Chip>
+                <Chip>Zargen</Chip>
+                <Chip>Rollläden (Elemente)</Chip>
+                <Chip>Bestand</Chip>
+                <Chip>Hannover</Chip>
               </div>
 
-              {/* ✅ geändert: SEO/Keyword im Hero */}
               <h1 className="mt-4 text-3xl font-semibold leading-tight tracking-tight text-slate-900 sm:text-4xl md:text-5xl">
-                Leistungen
+                Montage Bauelemente
               </h1>
 
               <p className="mt-3 max-w-2xl text-base leading-7 text-slate-600 sm:text-lg">
-                Primär <span className="font-medium text-slate-900">Einzelleistungen</span> im Bestand – und bei Bedarf{" "}
-                <span className="font-medium text-slate-900">Projektplanung</span> für Modernisierung / Kernsanierung.
+                Wir montieren Fenster, Türen, Zargen und genormte Bauelemente{" "}
+                <span className="font-medium text-slate-900">mit eigener Ausführung</span>{" "}
+                – sauber, zuverlässig und mit klarer Abgrenzung.
+                <br />
+                <span className="text-slate-500">
+                  Modernisierung/Kernsanierung begleiten wir auf Anfrage projektweise (Planung/Koordination).
+                </span>
               </p>
 
               <div className="mt-5 flex flex-col gap-2 sm:flex-row sm:items-center">
                 <a href="/anfrage" className={BTN_PRIMARY}>
-                  Projekt anfragen
+                  Anfrage starten
                 </a>
-                <a href="#einzelleistungen" className={BTN_GHOST}>
-                  Einzelleistungen
+                <a href="#montage" className={BTN_GHOST}>
+                  Montage-Leistungen
                 </a>
-                <a href="#projektpaket" className={BTN_GHOST}>
-                  Projektpaket
+                <a href="#projekt" className={BTN_GHOST}>
+                  Projektbegleitung
                 </a>
               </div>
 
               <div className={cn(SOFT_DARK, "mt-5 p-5 sm:p-6")}>
                 <div className="flex flex-wrap gap-2">
-                  {["Wohnung", "Generalunternehmen", "Hannover", "+30 Jahre Erfahrung", "Schnelle Umsetzung"].map((t) => (
-                    <Chip key={t}>{t}</Chip>
-                  ))}
+                  {["+30 Jahre Erfahrung", "sauberer Abschluss", "klare Schnittstellen", "Dokumentation (optional)"].map(
+                    (t) => (
+                      <Chip key={t}>{t}</Chip>
+                    )
+                  )}
                 </div>
 
                 <div className="mt-4 grid gap-3 sm:grid-cols-3">
                   {[
-                    { k: "Sauber", v: "ordentlich umgesetzt" },
-                    { k: "Klar", v: "Abgrenzung je Gewerk" },
-                    { k: "Nachvollziehbar", v: "Doku & Übergabe" },
+                    { k: "Sauber", v: "ordentlich montiert" },
+                    { k: "Klar", v: "Abgrenzung vorab" },
+                    { k: "Verlässlich", v: "Übergabe & Abnahme" },
                   ].map((x) => (
                     <div key={x.k} className={cn(CARD_DARK, "px-4 py-3")}>
                       <div className="text-xs font-medium text-slate-500">{x.k}</div>
@@ -424,8 +307,8 @@ export default function LeistungenPage() {
             <div className="lg:col-span-5">
               <div className={cn(IMG_WRAP, "h-56 sm:h-64 md:h-72 lg:h-[415px]")}>
                 <Image
-                  src="/startseite/modernisierung2.png"
-                  alt="Modernisierung & Kernsanierung im Bestand"
+                  src="/startseite/wohnzimmer_1.png"
+                  alt="Montage Bauelemente im Bestand"
                   fill
                   className={cn(IMG, "object-center")}
                   sizes="(max-width: 1024px) 100vw, 40vw"
@@ -434,7 +317,7 @@ export default function LeistungenPage() {
                 <div className="absolute inset-0 bg-gradient-to-t from-black/35 via-black/0 to-black/0" />
                 <div className="absolute bottom-3 left-3 right-3">
                   <div className="inline-flex items-center gap-2 rounded-full bg-white/90 px-3 py-1 text-xs font-medium text-slate-900 shadow-sm">
-                    Einzelleistung · Modernisierung · Kernsanierung
+                    Fenster · Türen · Zargen – sauber montiert
                   </div>
                 </div>
               </div>
@@ -443,28 +326,26 @@ export default function LeistungenPage() {
         </div>
       </section>
 
-      {/* EINZELLEISTUNGEN */}
-      <section id="einzelleistungen" className="mx-auto w-full max-w-7xl px-4 pb-12 sm:px-6 sm:pb-16">
+      {/* MONTAGE */}
+      <section id="montage" className="mx-auto w-full max-w-7xl px-4 pb-12 sm:px-6 sm:pb-16">
         <div className={cn(SOFT_DARK, "p-6 sm:p-8")}>
           <div className="flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
             <div>
               <h2 className="text-2xl font-semibold tracking-tight text-slate-900 sm:text-3xl">
-                Einzelleistungen
+                Montage-Leistungen
               </h2>
               <p className="mt-1 max-w-2xl text-sm leading-6 text-slate-600 sm:text-base">
-                Klar abgegrenzt. Schnell umgesetzt. Sauber übergeben.
+                Klar abgegrenzt. Sauber umgesetzt. Ordentlich übergeben.
               </p>
 
-              {/* ✅ SEO Mini-Text (1 Satz) */}
               <p className="mt-2 max-w-3xl text-xs leading-5 text-slate-500">
-                Einzelleistungen für Modernisierung und Kernsanierung im Raum Hannover – für Wohnungen, EFH, DHH und
-                Reihenhäuser.
+                Montage von Bauelementen im Raum Hannover – für Wohnung, EFH, DHH und Reihenhaus (Bestand).
               </p>
             </div>
           </div>
 
           <div className="mt-6 grid gap-4 lg:grid-cols-2">
-            {single.map((s) => (
+            {montage.map((s) => (
               <div key={s.title} className={cn(CARD_DARK, "p-5 sm:p-6")}>
                 <div className="flex items-start gap-3">
                   <div className="inline-flex h-10 w-10 items-center justify-center rounded-2xl border border-slate-200/70 bg-white/70 text-slate-900 shadow-sm">
@@ -476,7 +357,6 @@ export default function LeistungenPage() {
                   </div>
                 </div>
 
-                {/* ✅ NEU: 1–2 kurze Sätze je Leistung */}
                 <p className="mt-3 text-sm leading-6 text-slate-600">{s.text}</p>
 
                 <div className="mt-3 flex flex-wrap gap-2">
@@ -489,25 +369,27 @@ export default function LeistungenPage() {
           </div>
 
           <div className="mt-6 rounded-2xl border border-slate-200/70 bg-white px-4 py-3 text-xs text-slate-600">
-            <span className="font-medium text-slate-900">Wichtig:</span> Statik/Tragwerk nur nach Freigabe/Plan.
-            Elektro-Anschlüsse/Inbetriebnahme erfolgen durch eingetragene Fachbetriebe.
+            <span className="font-medium text-slate-900">Hinweis:</span> Umfang & Abgrenzung werden projektbezogen
+            geklärt (z. B. Putz/Maler/Fliesen/Elektro – je nach Schnittstelle).
           </div>
         </div>
       </section>
 
-      {/* PROJEKTPAKET */}
-      <section id="projektpaket" className="mx-auto w-full max-w-7xl px-4 pb-12 sm:px-6 sm:pb-16">
+      {/* PROJEKT (sekundär) */}
+      <section id="projekt" className="mx-auto w-full max-w-7xl px-4 pb-12 sm:px-6 sm:pb-16">
         <div className="flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
           <div>
             <h2 className="text-2xl font-semibold tracking-tight text-slate-900 sm:text-3xl">
-              Projektpaket: Modernisierung / Kernsanierung
+              Modernisierung / Kernsanierung (auf Anfrage)
             </h2>
             <p className="mt-1 max-w-2xl text-sm leading-6 text-slate-600 sm:text-base">
-              Für größere Vorhaben: Planung + Struktur + (bei Bedarf) Koordination.
+              Wenn aus Montage ein größeres Bestandsprojekt wird: Planung, Struktur und Koordination nach Bedarf.
             </p>
           </div>
-          <a href="/anfrage" className={BTN_PRIMARY}>
-            Projekt anfragen
+
+          {/* bewusst dezenter als Montage */}
+          <a href="/anfrage" className={BTN_GHOST}>
+            Projekt kurz besprechen
           </a>
         </div>
 
@@ -518,7 +400,7 @@ export default function LeistungenPage() {
         </div>
 
         <div className="mt-6 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
-          {paket.map((c) => (
+          {projekt.map((c) => (
             <div key={c.title} className={cn(CARD_DARK, "p-5 sm:p-6")}>
               <div className="flex items-start gap-3">
                 <div className="inline-flex h-10 w-10 items-center justify-center rounded-2xl border border-slate-200/70 bg-white/70 text-slate-900 shadow-sm">
@@ -542,6 +424,25 @@ export default function LeistungenPage() {
         <div className="mt-6 rounded-2xl border border-slate-200/70 bg-white px-4 py-3 text-xs text-slate-600">
           <span className="font-medium text-slate-900">Hinweis:</span> Zulassungspflichtige Ausführungen erfolgen durch
           eingetragene Fachbetriebe. Umfang & Abgrenzung werden projektbezogen geklärt.
+        </div>
+      </section>
+
+      {/* Bottom banner */}
+      <section className="mx-auto w-full max-w-7xl px-4 pb-10 sm:px-6">
+        <div className={cn(IMG_WRAP, "h-44 sm:h-56 lg:h-84")}>
+          <Image
+            src="/startseite/modernisiert.png"
+            alt="Bauelemente-Montage im Bestand"
+            fill
+            className={cn(IMG, "object-center")}
+            sizes="100vw"
+          />
+          <div className="absolute inset-0 bg-gradient-to-r from-black/35 via-black/0 to-black/0" />
+          <div className="absolute bottom-3 left-3 right-3 sm:bottom-4 sm:left-4 sm:right-4">
+            <div className="inline-flex items-center gap-2 rounded-full bg-white/90 px-3 py-1 text-xs font-medium text-slate-900 shadow-sm">
+              Montage Bauelemente · Bestand · Hannover
+            </div>
+          </div>
         </div>
       </section>
     </main>

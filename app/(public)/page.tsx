@@ -44,32 +44,37 @@ export default function PublicHome() {
             <div className="lg:col-span-7">
               <div className="inline-flex items-center gap-2 rounded-full border border-slate-200/70 bg-white px-3 py-1 text-xs font-medium text-slate-700 shadow-sm">
                 <span className="h-1.5 w-1.5 rounded-full bg-black" />
-                Hannover · Kernsanierung & Modernisierung
+                Hannover · Fenster & Türen · Montage
               </div>
 
+              {/* ✅ kürzeres H1 */}
               <h1 className="mt-4 text-3xl font-semibold leading-tight tracking-tight text-slate-900 sm:text-4xl md:text-5xl">
-                Modernisieren & sanieren – sauber durchgeführt.
+                Fenster & Türen – sauber montiert.
               </h1>
 
               <p className="mt-4 max-w-2xl text-base leading-7 text-slate-600 sm:text-lg">
-                Wir bündeln Einzelleistungen und koordinieren bei Bedarf die Gewerke –
+                Wir montieren{" "}
                 <span className="text-slate-900 font-medium">
-                  {" "}
-                  mit Fokus auf Kernsanierung, Modernisierung und Ausbau.
+                  Fenster, Haus-/Wohnungstüren, Innentüren, Zargen & Rollläden
                 </span>{" "}
-                Klarer Ablauf, feste Ansprechpartner, nachvollziehbare Dokumentation.
+                – ordentlich, zuverlässig und mit sauberer Übergabe.
+                <br />
+                <span className="text-slate-900 font-medium">
+                  Modernisierung im Bestand
+                </span>{" "}
+                begleiten wir auf Anfrage projektweise – mit klarer Koordination und passenden Partnergewerken.
               </p>
 
               <div className="mt-6 flex flex-col gap-2 sm:flex-row sm:items-center">
                 <a href="/anfrage" className={BTN_PRIMARY}>
-                  Projekt anfragen
+                  Montage anfragen
                 </a>
-                <a href="#einzelleistungen" className={BTN_GHOST}>
-                  Einzelleistungen ansehen
+                <a href="#montage" className={BTN_GHOST}>
+                  Leistungen ansehen
                 </a>
               </div>
 
-              {/* ✅ LINKES BILD: mit Padding */}
+              {/* ✅ LINKES BILD: exakt wie Vorlage (Padding etc.) */}
               <div
                 className={cn(
                   IMG_WRAP,
@@ -79,7 +84,7 @@ export default function PublicHome() {
                 <div className="relative h-full w-full overflow-hidden rounded-2xl">
                   <Image
                     src="/startseite/wohnzimmer_1.png"
-                    alt="Modernisierung & Sanierung"
+                    alt="Fenster- und Türenmontage"
                     fill
                     className={cn(IMG, "object-center")}
                     sizes="(max-width: 1024px) 100vw, 60vw"
@@ -88,21 +93,21 @@ export default function PublicHome() {
                   <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-black/0 to-black/0" />
                   <div className="absolute bottom-3 left-3 right-3">
                     <div className="text-sm font-semibold text-white">
-                      Kernsanierung & Modernisierung
+                      Bauelemente Montage
                     </div>
                     <div className="mt-1 text-xs text-white/85">
-                      Struktur · Timing · saubere Übergabe
+                      Fenster · Türen · Zargen · Rollläden
                     </div>
                   </div>
                 </div>
               </div>
 
-              {/* ✅ BOXEN: leicht schwarz, auf den Punkt */}
+              {/* ✅ BOXEN: exakt wie Vorlage */}
               <div className="mt-6 grid gap-3 sm:grid-cols-3">
                 {[
-                  { k: "Modernisierung", v: "Bestand aufwerten" },
-                  { k: "Kernsanierung", v: "sauber neu aufsetzen" },
-                  { k: "Ausbau", v: "Räume optimieren" },
+                  { k: "Montage", v: "Fenster & Türen" },
+                  { k: "Qualität", v: "sauber & ordentlich" },
+                  { k: "Bestand", v: "Projektbegleitung auf Anfrage" },
                 ].map((x) => (
                   <div key={x.k} className={cn(CARD_DARK, "px-4 py-3")}>
                     <div className="text-xs font-medium text-slate-500">
@@ -118,6 +123,7 @@ export default function PublicHome() {
 
             {/* Right */}
             <div className="lg:col-span-5">
+              {/* ✅ Height-Class wie Vorlage (md:h-163) beibehalten */}
               <div className={cn(IMG_WRAP, "h-64 sm:h-72 md:h-163")}>
                 <Image
                   src="/startseite/bauleiter.png"
@@ -138,157 +144,201 @@ export default function PublicHome() {
         </div>
       </section>
 
-{/* WAS UNS AUSZEICHNET (Trust / Proof) */}
+      {/* WAS UNS AUSZEICHNET (Trust / Proof) */}
+      <section
+        id="leistungen"
+        className="mx-auto w-full max-w-7xl px-4 py-12 sm:px-6 sm:py-16"
+      >
+        <div className="flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
+          <div>
+            <h2 className="text-2xl font-semibold tracking-tight text-slate-900 sm:text-3xl">
+              Was uns auszeichnet
+            </h2>
+            <p className="mt-2 max-w-2xl text-sm leading-6 text-slate-600 sm:text-base">
+              Saubere Montage im Bestand – mit klaren Zuständigkeiten, ordentlicher Ausführung und
+              nachvollziehbarer Dokumentation.
+            </p>
+          </div>
+        </div>
+
+        <div className="mt-6 grid gap-4 lg:grid-cols-12 lg:items-stretch">
+          {/* Left: Proof tiles */}
+          <div className="lg:col-span-7">
+            <div className={cn(CARD_DARK, "p-6 sm:p-7")}>
+              <div className="grid gap-3 sm:grid-cols-2">
+                {[
+                  {
+                    k: "Erfahrung",
+                    v: "30+ Jahre Berufserfahrung",
+                    d: "Praxis im Bestand, Montage & Sanierung – keine Theorie.",
+                  },
+                  {
+                    k: "Montage",
+                    v: "Fenster, Türen, Zargen",
+                    d: "ausrichten, befestigen, einstellen – sauber montiert.",
+                  },
+                  {
+                    k: "Sorgfalt",
+                    v: "ordentlich & kontrolliert",
+                    d: "Details sind Standard – nicht Extra.",
+                  },
+                  {
+                    k: "Dokumentation",
+                    v: "Fotos · Notizen · Übergaben",
+                    d: "transparent für Sie – hilfreich bei Abnahmen.",
+                  },
+                  {
+                    k: "Verlässlichkeit",
+                    v: "Termine & Kommunikation",
+                    d: "kurze Wege, klare Aussagen, keine Überraschungen.",
+                  },
+                  {
+                    k: "Projektbegleitung",
+                    v: "im Bestand (auf Anfrage)",
+                    d: "wenn mehrere Gewerke zusammenkommen – klar koordiniert.",
+                  },
+                ].map((x) => (
+                  <div
+                    key={x.v}
+                    className="rounded-2xl border border-slate-200/70 bg-white p-4"
+                  >
+                    <div className="text-xs text-slate-500">{x.k}</div>
+                    <div className="mt-1 text-sm font-medium text-slate-900">
+                      {x.v}
+                    </div>
+                    <div className="mt-1 text-xs leading-5 text-slate-600">
+                      {x.d}
+                    </div>
+                  </div>
+                ))}
+              </div>
+
+              {/* Small emphasis line */}
+              <div className="mt-5 rounded-2xl border border-slate-200/70 bg-white px-4 py-3 text-xs text-slate-600">
+                <span className="font-medium text-slate-900">Unser Ansatz:</span>{" "}
+                lieber sauber & planbar als laut & hektisch.
+              </div>
+            </div>
+          </div>
+
+          {/* Right: compact “why us” box */}
+          <div className="lg:col-span-5">
+            <div className={cn(CARD_DARK, "p-6 sm:p-7")}>
+              <div className="text-sm font-semibold text-slate-900">
+                Wofür Sie uns buchen
+              </div>
+              <p className="mt-2 text-sm leading-6 text-slate-600">
+                Für{" "}
+                <span className="font-medium text-slate-900">
+                  saubere Bauelemente-Montage
+                </span>{" "}
+                (Fenster/Türen/Zargen/Rollläden).{" "}
+                <span className="text-slate-600">
+                  Modernisierung im Bestand begleiten wir bei Bedarf projektweise.
+                </span>
+              </p>
+
+              <div className="mt-4 flex flex-wrap gap-2">
+                {[
+                  "Wohnung",
+                  "Einfamilienhaus",
+                  "Doppelhaushälfte",
+                  "Reihenhaus",
+                  "Altbau/Bestand",
+                  "Teilbereiche im MFH",
+                ].map((t) => (
+                  <span
+                    key={t}
+                    className="rounded-full border border-slate-200/70 bg-white px-3 py-1 text-xs text-slate-700"
+                  >
+                    {t}
+                  </span>
+                ))}
+              </div>
+
+              <div className="mt-5 grid gap-3">
+                {[
+                  {
+                    t: "Montage-Leistung",
+                    d: "klarer Umfang, saubere Ausführung, ordentliche Übergabe.",
+                  },
+                  {
+                    t: "Projektbegleitung (optional)",
+                    d: "wenn mehrere Gewerke greifen – planbar & strukturiert.",
+                  },
+                ].map((x) => (
+                  <div
+                    key={x.t}
+                    className="rounded-2xl border border-slate-200/70 bg-white p-4"
+                  >
+                    <div className="text-sm font-medium text-slate-900">
+                      {x.t}
+                    </div>
+                    <div className="mt-1 text-xs leading-5 text-slate-600">
+                      {x.d}
+                    </div>
+                  </div>
+                ))}
+              </div>
+
+              <a href="/anfrage" className={cn(BTN_PRIMARY, "mt-5 w-full")}>
+                Montage anfragen
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* FOKUS / CTA (Modernisierung – bewusst weniger präsent) */}
+{/* MODERNISIERUNG / KERNSANIERUNG (auf Anfrage) – bewusst sekundär */}
+{/* MODERNISIERUNG / KERNSANIERUNG (auf Anfrage) – bewusst sekundär */}
 <section
-  id="leistungen"
+  id="projektarten"
   className="mx-auto w-full max-w-7xl px-4 py-12 sm:px-6 sm:py-16"
 >
-  <div className="flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
-    <div>
-      <h2 className="text-2xl font-semibold tracking-tight text-slate-900 sm:text-3xl">
-        Was uns auszeichnet
-      </h2>
-      <p className="mt-2 max-w-2xl text-sm leading-6 text-slate-600 sm:text-base">
-        Saubere Ausführung im Bestand – mit Struktur, klaren Zuständigkeiten und nachvollziehbarer Dokumentation.
-      </p>
-    </div>
-
-  </div>
-
-  <div className="mt-6 grid gap-4 lg:grid-cols-12 lg:items-stretch">
-    {/* Left: Proof tiles */}
-    <div className="lg:col-span-7">
-      <div className={cn(CARD_DARK, "p-6 sm:p-7")}>
-        <div className="grid gap-3 sm:grid-cols-2">
-          {[
-            {
-              k: "Erfahrung",
-              v: "30+ Jahre Berufserfahrung",
-              d: "Praxis im Bestand, Sanierung & Montage – keine Theorie.",
-            },
-            {
-              k: "Struktur",
-              v: "klare Abläufe & Zuständigkeiten",
-              d: "damit es nicht knallt, wenn mehrere Gewerke greifen.",
-            },
-            {
-              k: "Qualität",
-              v: "sauber, ordentlich, kontrolliert",
-              d: "Details sind kein Extra – sie sind Standard.",
-            },
-            {
-              k: "Dokumentation",
-              v: "Fotos · Notizen · Übergaben",
-              d: "transparent für Sie – hilfreich bei Abnahmen.",
-            },
-            {
-              k: "Verlässlichkeit",
-              v: "Termine & Kommunikation",
-              d: "kurze Wege, klare Aussagen, keine Überraschungen.",
-            },
-            {
-              k: "Bestand-Fokus",
-              v: "Modernisierung & Kernsanierung",
-              d: "Wohnungen, EFH, DHH, Reihenhaus – sauber umgesetzt.",
-            },
-          ].map((x) => (
-            <div key={x.v} className="rounded-2xl border border-slate-200/70 bg-white p-4">
-              <div className="text-xs text-slate-500">{x.k}</div>
-              <div className="mt-1 text-sm font-medium text-slate-900">{x.v}</div>
-              <div className="mt-1 text-xs leading-5 text-slate-600">{x.d}</div>
-            </div>
-          ))}
-        </div>
-
-        {/* Small emphasis line */}
-        <div className="mt-5 rounded-2xl border border-slate-200/70 bg-white px-4 py-3 text-xs text-slate-600">
-          <span className="font-medium text-slate-900">Unser Ansatz:</span> lieber sauber & planbar als laut & hektisch.
-        </div>
-      </div>
-    </div>
-
-    {/* Right: compact “why us” box */}
-    <div className="lg:col-span-5">
-      <div className={cn(CARD_DARK, "p-6 sm:p-7")}>
-        <div className="text-sm font-semibold text-slate-900">Wofür Sie uns buchen</div>
-        <p className="mt-2 text-sm leading-6 text-slate-600">
-          Für Bestandsprojekte, die sauber laufen sollen: modernisieren, teil-sanieren oder kernsanieren –
-          mit einem Ansprechpartner und klarer Koordination (wenn nötig).
-        </p>
-
-        <div className="mt-4 flex flex-wrap gap-2">
-          {[
-            "Wohnung",
-            "Einfamilienhaus",
-            "Doppelhaushälfte",
-            "Reihenhaus",
-            "Altbau/Bestand",
-            "Teilbereiche im MFH",
-          ].map((t) => (
-            <span key={t} className="rounded-full border border-slate-200/70 bg-white px-3 py-1 text-xs text-slate-700">
-              {t}
-            </span>
-          ))}
-        </div>
-
-        <div className="mt-5 grid gap-3">
-          {[
-            { t: "Einzelleistung", d: "wenn klar abgegrenzt (z. B. Montage, Innenausbau)." },
-            { t: "Projektpaket", d: "wenn mehrere Gewerke zusammenkommen (Plan + Koordination)." },
-          ].map((x) => (
-            <div key={x.t} className="rounded-2xl border border-slate-200/70 bg-white p-4">
-              <div className="text-sm font-medium text-slate-900">{x.t}</div>
-              <div className="mt-1 text-xs leading-5 text-slate-600">{x.d}</div>
-            </div>
-          ))}
-        </div>
-
-        <a href="/anfrage" className={cn(BTN_PRIMARY, "mt-5 w-full")}>
-          Unverbindlich sprechen
-        </a>
-      </div>
-    </div>
-  </div>
-</section>
-      {/* FOKUS / PROJEKTARTEN (privat-first) */}
-{/* FOKUS / CTA (Modernisierung & Kernsanierung – koordiniert) */}
-<section id="projektarten" className="mx-auto w-full max-w-7xl px-4 py-12 sm:px-6 sm:py-16">
   <div className={cn(SOFT_DARK, "p-6 sm:p-8")}>
     <div className="grid gap-6 lg:grid-cols-12 lg:items-stretch">
-      {/* LEFT: CTA + bullets */}
-      <div className="lg:col-span-7">
-        <div className={cn(CARD_DARK, "p-6 sm:p-7")}>
+      {/* LEFT */}
+      <div className="lg:col-span-7 h-full">
+        <div className={cn(CARD_DARK, "h-full p-6 sm:p-7 flex flex-col")}>
           <div className="flex flex-wrap items-center gap-2">
             <span className="rounded-full border border-slate-200/70 bg-white px-2.5 py-1 text-xs text-slate-700">
-              Generalunternehmer-Koordination (Bestand)
+              Modernisierung / Kernsanierung (auf Anfrage)
             </span>
             <span className="rounded-full border border-slate-200/70 bg-white px-2.5 py-1 text-xs text-slate-700">
-              Modernisierung · Kernsanierung
+              Planung · Koordination · Doku
+            </span>
+            <span className="rounded-full border border-slate-200/70 bg-white px-2.5 py-1 text-xs text-slate-700">
+              ein Ansprechpartner
             </span>
           </div>
 
-          <h2 className="mt-4 text-2xl font-semibold tracking-tight text-slate-900 sm:text-3xl">
-            Modernisieren ohne Chaos – wir koordinieren sauber & dokumentiert
+          <h2 className="mt-4 text-xl font-semibold tracking-tight text-slate-900 sm:text-2xl">
+            Modernisierung & Kernsanierung im Bestand
           </h2>
 
           <p className="mt-2 max-w-2xl text-sm leading-6 text-slate-600 sm:text-base">
-            Wenn mehrere Gewerke zusammenkommen, wird es schnell unübersichtlich. Wir übernehmen Planung,
-            Abstimmung und Ablauf – damit Ihr Projekt im Bestand kontrolliert läuft.
+            Wenn aus einem Vorhaben mehr als reine Montage wird, begleiten wir Ihr Projekt strukturiert
+            – mit klaren Schnittstellen und passenden Partnergewerken.
           </p>
 
-          {/* Small bullets (no big headings) */}
           <ul className="mt-5 grid gap-2 text-sm text-slate-700 sm:grid-cols-2">
             {[
-              "klare Abgrenzung der Gewerke",
-              "strukturierter Ablaufplan",
+              "Schnittstellen sauber definieren",
+              "Ablaufplan & Timing",
               "laufende Dokumentation",
-              "Qualitätskontrolle & saubere Abnahmen",
+              "Qualitätskontrolle & Abnahmen",
               "Material-/Lieferlogistik im Blick",
-              "ein Ansprechpartner",
+              "Partnergewerke gezielt einbinden",
             ].map((t) => (
               <li key={t} className="flex items-start gap-2">
                 <span className="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full border border-slate-200/70 bg-white">
-                  <svg viewBox="0 0 20 20" className="h-3.5 w-3.5 text-slate-900" fill="currentColor" aria-hidden="true">
+                  <svg
+                    viewBox="0 0 20 20"
+                    className="h-3.5 w-3.5 text-slate-900"
+                    fill="currentColor"
+                    aria-hidden="true"
+                  >
                     <path
                       fillRule="evenodd"
                       d="M16.704 5.29a1 1 0 01.006 1.414l-7.2 7.25a1 1 0 01-1.42-.003L3.29 9.15a1 1 0 011.42-1.41l3.09 3.11 6.49-6.54a1 1 0 011.414-.02z"
@@ -301,17 +351,14 @@ export default function PublicHome() {
             ))}
           </ul>
 
-          {/* Chips: project types (small, unobtrusive) */}
           <div className="mt-5 flex flex-wrap gap-2">
             {[
-  "Wohnung",
-  "Einfamilienhaus",
-  "Doppelhaushälfte",
-  "Reihenhaus",
-  "Altbau / Bestand",
-  "Mehrfamilienhaus (Teile)",
-  "Gewerbe (klein, nach Absprache)",
-  "Keller / Feuchtebereiche",
+              "Wohnung",
+              "Einfamilienhaus",
+              "Doppelhaushälfte",
+              "Reihenhaus",
+              "Altbau / Bestand",
+              "Mehrfamilienhaus (Teile)",
             ].map((t) => (
               <span
                 key={t}
@@ -322,37 +369,41 @@ export default function PublicHome() {
             ))}
           </div>
 
-
-          {/* CTA */}
-          <div className="mt-6 flex flex-col gap-3 sm:flex-row sm:items-center">
-            <a href="/anfrage" className={cn(BTN_PRIMARY, "w-full sm:w-auto")}>
-              Projekt anfragen
+          {/* ✅ Spacer drückt CTA nach unten + nutzt volle Höhe */}
+          <div className="mt-auto pt-6 flex flex-col gap-3 sm:flex-row sm:items-center">
+            <a href="/anfrage" className={cn(BTN_GHOST, "w-full sm:w-auto")}>
+              Modernisierung kurz besprechen
             </a>
-
+            <span className="text-xs text-slate-500">
+              Optional – nur wenn mehrere Gewerke zusammenkommen.
+            </span>
           </div>
         </div>
       </div>
 
-      {/* RIGHT: Image + overlay (clean) */}
+      {/* RIGHT */}
       <div className="lg:col-span-5">
         <div className={cn(IMG_WRAP, "h-64 sm:h-72 md:h-127")}>
           <Image
             src="/startseite/pfad.png"
-            alt="Modernisierung im Bestand"
+            alt="Modernisierung & Kernsanierung im Bestand"
             fill
             className={cn(IMG, "object-top")}
             sizes="(max-width: 1024px) 100vw, 40vw"
           />
 
-          {/* (optional) very subtle overlay */}
           <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-black/0 to-black/0" />
 
           <div className="absolute bottom-3 left-3 right-3">
-            <div className="text-sm font-semibold text-white">Bestand modernisieren – strukturiert</div>
-            <div className="mt-1 text-xs text-white/85">Planung · Koordination · Dokumentation</div>
+            <div className="text-sm font-semibold text-white">
+              Kernsanierung & Modernisierung
+            </div>
+            <div className="mt-1 text-xs text-white/85">
+              strukturiert geführt · klare Schnittstellen
+            </div>
 
             <div className="mt-3 rounded-2xl border border-white/20 bg-black/20 px-3 py-2 text-xs text-white/90 backdrop-blur">
-              Ein Ansprechpartner – klare Schnittstellen zu den Gewerken.
+              Partnergewerke eingebunden – Koordination & Doku inklusive.
             </div>
           </div>
         </div>
@@ -362,81 +413,67 @@ export default function PublicHome() {
 </section>
 
 
-
-      {/* EINZELLEISTUNGEN */}
+      {/* MONTAGE */}
       <section
-        id="einzelleistungen"
+        id="montage"
         className="mx-auto w-full max-w-7xl px-4 py-12 sm:px-6 sm:py-16"
       >
         <div className={cn(SOFT_DARK, "p-6 sm:p-8")}>
           <div className="flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
             <div>
               <h2 className="text-2xl font-semibold tracking-tight text-slate-900 sm:text-3xl">
-                Einzelleistungen
+                Montage Bauelemente
               </h2>
               <p className="mt-2 max-w-2xl text-sm leading-6 text-slate-600 sm:text-base">
-                Ausgewählte Arbeiten führen wir projektabhängig selbst aus – klar
-                abgegrenzt und sauber dokumentiert.
+                Klarer Umfang, saubere Ausführung, ordentliche Übergabe – ohne Chaos.
               </p>
             </div>
           </div>
 
+          {/* ✅ Layout exakt wie vorher (lg:grid-cols-2 + Cards) */}
           <div className="mt-6 grid gap-4 lg:grid-cols-2">
             {[
               {
-                title: "Einbau genormter Baufertigteile",
+                title: "Fenster & Fensterelemente",
                 items: [
-                  "Fenster / Türen / Zargen (vorgefertigt)",
-                  "Zäune (vorgefertigt)",
-                  "Fensterelemente mit Rollläden",
-                  "Bausätze (z. B. Carport) projektabhängig",
+                  "Aus- und Einbau (Bestand)",
+                  "Ausrichten & Befestigen",
+                  "Abdichtung / Anschluss nach Abstimmung",
+                  "Fensterelemente mit Rollläden (projektabhängig)",
                 ],
               },
               {
-                title: "Bautentrocknung",
+                title: "Haus- & Wohnungstüren",
                 items: [
-                  "Neubau-/Estrich-Trocknung",
-                  "Wasserschaden-Trocknung",
-                  "Zwischenmessungen",
-                  "Feuchte-Protokollierung (projektabhängig)",
+                  "Einbau & Justierung",
+                  "Beschläge / Schließbleche nach Absprache",
+                  "Saubere Übergänge & Abschlussarbeiten (Schnittstellen geklärt)",
+                  "Abnahme & Übergabe",
                 ],
               },
               {
-                title: "Bodenleger",
+                title: "Innentüren & Zargen",
                 items: [
-                  "Laminat",
-                  "Fertigparkett (schwimmend)",
-                  "Teppich/Kork",
-                  "PVC/Linoleum/Gummi",
+                  "Zargen setzen & ausrichten",
+                  "Türblatt montieren & einstellen",
+                  "Türdrücker/Beschläge nach Absprache",
+                  "Sauberer Abschluss (Schnittstellen beachten)",
                 ],
               },
               {
-                title: "Fuger im Hochbau",
+                title: "Vorbereitung & Schutz",
                 items: [
-                  "Anschluss-/Bewegungsfugen",
-                  "Dehnungsfugen innen",
-                  "Bewegungsfugen im Fliesenbereich",
-                ],
-              },
-              {
-                title: "Betonbohrer & -schneider",
-                items: [
-                  "Kernbohrungen",
-                  "Betonschnitte nach Vorgabe",
-                  "statikrelevant nur nach Freigabe",
-                ],
-              },
-              {
-                title: "Kabelverleger im Hochbau – ohne Anschluss",
-                items: [
-                  "Kabel/Leerrohre/Trassen nach Vorgabe",
-                  "Befestigen & Verlegen",
-                  "keine Anschlüsse / Inbetriebnahme",
+                  "Leistungsabgrenzung vorab festlegen",
+                  "Material / Lieferfenster abstimmen",
+                  "Schutzmaßnahmen im Bestand",
+                  "Dokumentation (Fotos/Notizen) projektabhängig",
                 ],
               },
             ].map((b) => (
               <div key={b.title} className={cn(CARD_DARK, "p-5 sm:p-6")}>
-                <div className="text-sm font-semibold text-slate-900">{b.title}</div>
+                <div className="text-sm font-semibold text-slate-900">
+                  {b.title}
+                </div>
                 <ul className="mt-3 space-y-2 text-sm text-slate-600">
                   {b.items.map((t) => (
                     <li key={t} className="flex gap-2">
@@ -450,9 +487,8 @@ export default function PublicHome() {
           </div>
 
           <div className="mt-6 rounded-2xl border border-slate-200/70 bg-white px-4 py-3 text-xs text-slate-600">
-            <span className="font-medium text-slate-900">Hinweis:</span> Umfang &
-            Abgrenzung werden projektbezogen geklärt (Gewerk, Ausführung, ggf.
-            Statik/Planung).
+            <span className="font-medium text-slate-900">Hinweis:</span>{" "}
+            Umfang & Abgrenzung werden projektbezogen geklärt (z. B. Putz/Maler/Fliesen/Elektro – je nach Schnittstelle).
           </div>
         </div>
       </section>
@@ -479,7 +515,7 @@ export default function PublicHome() {
               "border border-slate-200/80 bg-white hover:bg-slate-50 text-slate-900 transition shadow-sm"
             )}
           >
-            Projekt starten
+            Anfrage starten
           </a>
         </div>
 
@@ -509,7 +545,7 @@ export default function PublicHome() {
                 title: "Planung",
                 text:
                   "Ablauf, Termine, Reihenfolge der Arbeiten – plus Material-/Lieferfenster.",
-                bullets: ["Ablauf & Reihenfolge", "Gewerke/Leistungen", "Material & Timing"],
+                bullets: ["Ablauf & Reihenfolge", "Leistung/Umfang", "Material & Timing"],
                 icon: (
                   <svg viewBox="0 0 24 24" className="h-5 w-5" fill="none" aria-hidden="true">
                     <path d="M7 3v3M17 3v3M4 9h16" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
@@ -608,13 +644,11 @@ export default function PublicHome() {
           <div className="absolute inset-0 bg-gradient-to-r from-black/35 via-black/0 to-black/0" />
           <div className="absolute bottom-3 left-3 right-3 sm:bottom-4 sm:left-4 sm:right-4">
             <div className="inline-flex items-center gap-2 rounded-full bg-white/90 px-3 py-1 text-xs font-medium text-slate-900 shadow-sm">
-              Modernisierung · Kernsanierung · Einzelleistungen
+              Fenster · Türen · Bauelemente Montage · Bestand (auf Anfrage)
             </div>
           </div>
         </div>
       </section>
-
-
     </main>
   );
 }
